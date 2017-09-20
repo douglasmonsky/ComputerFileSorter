@@ -39,6 +39,7 @@ for file_name in file_names:
         else:
             file_ext += char
 
+    print(file_ext)
     file_name_ext_link.append((file_name , file_ext))
 
     #If we haven't seen this extension yet, add it to list.
@@ -89,6 +90,7 @@ for move_file in file_name_ext_link:
     # print(source)
     try:
         shutil.move(source,destination)
+        #add_to_log(source,destination)
     except Exception as e:
         print("Error moving files: " + str(e))
 
@@ -104,5 +106,10 @@ for directory in dir_names:
     # print(destination)
     try:
         shutil.move(source,destination)
+        #add_to_log(source,destination)
     except Exception as e:
         print("Error moving files: " + str(e))
+
+
+#to revert, loop through log and:
+#shutil.move(destination,source)

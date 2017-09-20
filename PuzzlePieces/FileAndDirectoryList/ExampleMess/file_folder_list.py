@@ -39,6 +39,7 @@ for file_name in file_names:
         else:
             file_ext += char
 
+    print(file_ext)
     file_name_ext_link.append((file_name , file_ext))
 
     #If we haven't seen this extension yet, add it to list.
