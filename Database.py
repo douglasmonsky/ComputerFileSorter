@@ -24,7 +24,7 @@ class Database:
         '''Adds new table to database. 
         columns = list of tuple pairs of (column_name, data_type)
         e.g. [('colname1', 'TEXT'), ('colname2', 'TEXT')]
-        data_type options = NULL, INTEGER, REAL, TEXT, BLOB '''
+        data_type options = NULL, INTEGER, REAL, TEXT, BLOB'''
         column_string = ''
         for column in columns:
             if column == columns[-1]:

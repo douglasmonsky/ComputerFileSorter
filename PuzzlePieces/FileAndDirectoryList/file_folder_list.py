@@ -1,3 +1,4 @@
+import Database
 import os, shutil
 
 #Get current working directory.
@@ -98,15 +99,18 @@ for move_file in file_name_ext_link:
 folders_directory = sorted_directory + "Folders"
 print(folders_directory)
 
+database = Database('revertfile.db')
+columns = [('original_file_path', 'TEXT'), ('new_file_path', 'TEXT')]
+database.create_table('revert_table', columns)
+
 for directory in dir_names:
 
     source = root_path + "/" + directory + "/"
     destination = folders_directory + "/" + directory + "/"
-    # print(source)
-    # print(destination)
+    values = (source, destination)
     try:
         shutil.move(source,destination)
-        #add_to_log(source,destination)
+        database.data_entry('revert_table', values)
     except Exception as e:
         print("Error moving files: " + str(e))
 
